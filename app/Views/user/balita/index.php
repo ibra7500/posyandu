@@ -70,6 +70,7 @@
                             <td><?=esc($data_balita['panjang_lahir']);?></td>
                             <td><?=esc($data_balita['status_kesehatan']);?></td>
                             <td class="text-center" width = "20%">
+                                <a href="<?= base_url('Balita/detail_data/'.$data_balita['nik_balita']); ?>" class="btn btn-primary">Detail</a>    
                                 <a href="<?= base_url('Balita/update_data/'.$data_balita['nik_balita']); ?>" class="btn btn-success">Update</a>
                                 <a href="<?= base_url('Balita/delete_data/'.$data_balita['nik_balita']); ?>" class="btn btn-danger">Delete</a>
                             </td>

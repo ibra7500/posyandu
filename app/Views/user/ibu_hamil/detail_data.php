@@ -19,8 +19,67 @@
             <h2 class="h3 mb-2 text-gray-800">Data Untuk <?= $ibu_hamil['nama_ibu_hamil']; ?></h2>
         </div>
         <div class="card-body">
+            <div class="container">
+                <table class="table" id="dataTable">
 
-                <div class="form-group-inline my-2 mb-2">
+                    <tr>
+                        <td>NIK</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['nik_ibu_hamil']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['nama_ibu_hamil']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['umur']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Hamil Ke</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['hamil_keberapa']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Anak Ke</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['anak_keberapa']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Hari Pertama Haid Terakhir</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['hpht']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Hari Perkiraan Lahir</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['hpl']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Skor Rochjati</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['skor_rochjati']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>No. HP</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['no_hp']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['alamat']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Suami</td>
+                        <td>:</td>
+                        <td><?= $ibu_hamil['nama_suami']; ?></td>
+                    </tr>
+                </table>
+
+                <!-- <div class="form-group-inline my-2 mb-2">
                     <label for="">NIK</label>
                     <label for="">:</label>
                     <label for=""><?= $ibu_hamil['nik_ibu_hamil']; ?></label>
@@ -84,8 +143,8 @@
                     <label for="">No. HP</label>
                     <label for="">:</label>
                     <label for=""><?= $ibu_hamil['no_hp']; ?></label> 
-                </div>
-
+                </div> -->
+            </div>
         </div>
     </div>
 

@@ -116,11 +116,19 @@ class Balita extends BaseController
 
 	}
 
-	public function delete_data($nik_balita)
-	{
+	public function delete_data($nik_balita) {
+	
 		$this->Balita_Model->deleteData($nik_balita);
 		session()->setFlashData('sukses', 'Data Terhapus');
 		return redirect()->to(base_url('Balita')); 
+	}
+
+	public function detail_data ($nik_balita) {
+
+		$data['title'] = 'Detail Data Balita';
+		$data['balita'] = $this->Balita_Model->getData($nik_balita);
+		return view('user/balita/detail_data', $data);
+
 	}
 
 }
