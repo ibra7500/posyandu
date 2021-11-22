@@ -11,6 +11,7 @@ class Balita_Model extends Model {
         
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table('balita');
+        
     }
 
     public function getData ($nik_balita = false) {
@@ -45,6 +46,8 @@ class Balita_Model extends Model {
         $this->builder->delete();
  
      }
+
 }
+
 
 ?>

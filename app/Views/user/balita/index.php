@@ -69,10 +69,11 @@
                             <td><?=esc($data_balita['berat_lahir']);?></td>
                             <td><?=esc($data_balita['panjang_lahir']);?></td>
                             <td><?=esc($data_balita['status_kesehatan']);?></td>
-                            <td class="text-center" width = "20%">
-                                <a href="<?= base_url('Balita/detail_data/'.$data_balita['nik_balita']); ?>" class="btn btn-primary">Detail</a>    
-                                <a href="<?= base_url('Balita/update_data/'.$data_balita['nik_balita']); ?>" class="btn btn-success">Update</a>
-                                <a href="<?= base_url('Balita/delete_data/'.$data_balita['nik_balita']); ?>" class="btn btn-danger">Delete</a>
+                            <td class="text-center">
+                                <a href="<?= base_url('Balita/detail_data/'.$data_balita['nik_balita']); ?>" class="btn btn-primary m-1">Detail</a>    
+                                <a href="<?= base_url('Balita/penimbangan_balita/'.$data_balita['nik_balita']); ?>" class="btn btn-primary m-1">Penimbangan</a>    
+                                <a href="<?= base_url('Balita/update_data/'.$data_balita['nik_balita']); ?>" class="btn btn-success m-1">Update</a>
+                                <a href="<?= base_url('Balita/delete_data/'.$data_balita['nik_balita']); ?>" class="btn btn-danger m-1">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
