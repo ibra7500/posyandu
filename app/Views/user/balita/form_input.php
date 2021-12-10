@@ -5,6 +5,17 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800"><?=$title?></h1>
+    <?php
+     if (session()->getFlashData('error')) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-times"></i> Gagal </strong> <?= session()->getFlashData('error'); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <?php endif;
+    ?>
     
 
     <!-- DataTales Example -->
@@ -20,77 +31,67 @@
         <div class="card-body">
             <form action="<?= base_url('Balita/input_data'); ?>" method="POST">
 
-                <div class=" form-group-inline my-2">
-                    <label for="">Masukkan NIK Balita</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nik_balita">
+            <div class="form-row">
+
+                <!-- NIK BALITA -->
+                <div class="form-group col-4 my-3"> 
+                    <label for="" class="font-weight-bold">NIK Balita</label>
+                    <input type="text" value="" class="form-control" name="nik_balita" placeholder="Masukkan NIK Balita">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Nama Balita</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nama_balita">
+                <!-- NAMA BALITA -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Nama Balita</label>
+                    <input type="text" value="" class="form-control" name="nama_balita" placeholder="Masukkan Nama Balita">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" id="" class="form-control col-lg-5">
+                <!-- TGL LAHIR -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Tanggal Lahir</label>
+                    <input name="tgl_lahir" type="date" value="" class="form-control">
+                </div>
+
+                <!-- JENIS KELAMIN -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="" class="form-control">
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Tanggal Lahir</label>
-                    <input name="tgl_lahir" type="date" value="" class="form-control col-lg-5">
+                <!-- BERAT LAHIR -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Berat Lahir</label>
+                    <input type="text" value="" class="form-control" name="berat_lahir" placeholder="Masukkan Berat Lahir">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Berat Lahir</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="berat_lahir">
+                <!-- PANJANG LAHIR -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Panjang Lahir</label>
+                    <input type="text" value="" class="form-control" name="panjang_lahir" placeholder="Masukkan Panjang Lahir">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Panjang Lahir</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="panjang_lahir">
+                <!-- STATUS -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Status Kesehatan</label>
+                    <input type="text" value="" class="form-control" name="status_kesehatan" placeholder="Masukkan Status Kesehatan">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Status Kesehatan</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="status_kesehatan">
+                <!-- NIK AYAH -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK Ayah</label>
+                    <input type="text" value="" class="form-control" name="nik_ayah" placeholder="Masukkan NIK Ayah">
                 </div>
 
-                <div class=" form-group-inline my-2">
-                    <label for="">Masukkan NIK Ayah</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nik_ayah">
+                <!-- NIK IBU -->
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK Ibu</label>
+                    <input type="text" value="" class="form-control" name="nik_ibu" placeholder="Masukkan NIK Ibu">
                 </div>
+            </div>
 
-                <div class=" form-group-inline my-2">
-                    <label for="">Masukkan Nama Ayah</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nama_ayah">
-                </div>
-
-                <div class=" form-group-inline my-2">
-                    <label for="">Masukkan NIK Ibu</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nik_ibu">
-                </div>
-
-                <div class=" form-group-inline my-2">
-                    <label for="">Masukkan Nama Ibu</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="nama_ibu">
-                </div>
-
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Alamat</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="alamat">
-                </div>
-
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan No HP Orang Tua</label>
-                    <input type="text" value="" class="form-control col-lg-5" name="no_hp_ortu">
-                </div>
-               
-
-
-                <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-success mx-auto mt-2 btn-block">Simpan</button>
             </form>
         </div>
     </div>

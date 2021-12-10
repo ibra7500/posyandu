@@ -6,7 +6,6 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800"><?=$title?></h1>
     
-
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -20,60 +19,77 @@
         <div class="card-body">
             <form action="<?= base_url('Ibu_Hamil/edit_data/'.$ibu_hamil['nik_ibu_hamil']); ?>" method="POST">
             
-                <div class=" form-group-inline my-2 mb-2">
-                    <label for="">NIK</label>
-                    <input type="text" value="<?= $ibu_hamil['nik_ibu_hamil']; ?>" class="form-control col-lg-5" name="nik_ibu_hamil" readonly>
+            <div class="form-row">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK</label>
+                    <input type="text" value="<?= $ibu_hamil['nik_ibu_hamil']; ?>" class="form-control " name="nik_ibu_hamil" readonly>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Nama</label>
-                    <input type="text" value="<?= $ibu_hamil['nama_ibu_hamil']; ?>" class="form-control col-lg-5" name="nama_ibu_hamil">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Nama</label>
+                    <input type="text" value="<?= $ibu_hamil['nama_ibu_hamil']; ?>" class="form-control " name="nama_ibu_hamil">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Umur</label>
-                    <input type="text" value="<?= $ibu_hamil['umur']; ?>" class="form-control col-lg-5" name="umur">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Umur</label>
+                    <input type="text" value="<?= $ibu_hamil['umur']; ?>" class="form-control " name="umur">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Hamil Keberapa?</label>
-                    <input type="text" value="<?= $ibu_hamil['hamil_keberapa']; ?>" class="form-control col-lg-5" name="hamil_keberapa">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Hamil Keberapa?</label>
+                    <input type="text" value="<?= $ibu_hamil['hamil_keberapa']; ?>" class="form-control " name="hamil_keberapa">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Anak Keberapa?</label>
-                    <input type="text" value="<?= $ibu_hamil['anak_keberapa']; ?>" class="form-control col-lg-5" name="anak_keberapa">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Anak Keberapa?</label>
+                    <input type="text" value="<?= $ibu_hamil['anak_keberapa']; ?>" class="form-control " name="anak_keberapa">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Hari Pertama Haid Terakhir (HPHT)</label>
-                    <input type="text" value="<?= $ibu_hamil['hpht']; ?>" class="form-control col-lg-5" name="hpht">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Hari Pertama Haid Terakhir (HPHT)</label>
+                    <input type="date" value="<?= $ibu_hamil['hpht']; ?>" class="form-control " name="hpht">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Hari Perkiraan Lahir (HPL)</label>
-                    <input type="text" value="<?= $ibu_hamil['hpl']; ?>" class="form-control col-lg-5" name="hpl">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Skor Rochjati </label>
+                    <input type="text" value="<?= $ibu_hamil['skor_rochjati']; ?>" class="form-control " name="skor_rochjati">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Skor Rochjati </label>
-                    <input type="text" value="<?= $ibu_hamil['skor_rochjati']; ?>" class="form-control col-lg-5" name="skor_rochjati">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Status</label>
+                    <select name="status" id="" class="form-control ">
+                        <option autofocus value="">Pilih Status</option>
+                        <option value="1" class="font-weight-bold">Sedang Hamil</option>
+                        <option value="2" class="font-weight-bold">Mengalami Keguguran</option>
+                        <option value="0" class="font-weight-bold">Sudah Melahirkan</option>
+                    </select>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Masukkan Nama Suami</label>
-                    <input type="text" value="<?= $ibu_hamil['nama_suami']; ?>" class="form-control col-lg-5" name="nama_suami">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Tanggal Melahirkan (Kosongkan jika belum)</label>
+                    <input type="date" value="<?= $ibu_hamil['tgl_melahirkan']; ?>" class="form-control " name="tgl_melahirkan">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Alamat</label>
-                    <input type="text" value="<?= $ibu_hamil['alamat']; ?>" class="form-control col-lg-5" name="alamat">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Skor Rochjati </label>
+                    <input type="text" value="<?= $ibu_hamil['skor_rochjati']; ?>" class="form-control " name="skor_rochjati">
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">No. HP</label>
-                    <input type="text" value="<?= $ibu_hamil['no_hp']; ?>" class="form-control col-lg-5" name="no_hp">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Nama Suami</label>
+                    <input type="text" value="<?= $ibu_hamil['nama_suami']; ?>" class="form-control " name="nama_suami">
                 </div>
+
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">No. HP</label>
+                    <input type="text" value="<?= $ibu_hamil['no_hp']; ?>" class="form-control " name="no_hp">
+                </div>
+            </div>
+
+            <div class="form-group-inline my-4">
+                <label for="" class="font-weight-bold">Alamat</label>
+                <textarea class="form-control" name="alamat" rows="3"><?= $ibu_hamil['alamat']; ?></textarea>
+            </div>
 
                 <button type="submit" class="btn btn-success">Simpan </button>
             </form>

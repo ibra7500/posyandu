@@ -31,6 +31,8 @@ class Warga_Vaksin extends BaseController
 			'alamat' => 'required|string',
 			'no_hp' => 'required|numeric',
 			'tgl_vaksin_pertama' => 'required',
+			'tempat_vaksin_pertama' => 'required',
+			'jenis_vaksin_pertama' => 'required',
 		]);
 
 		if (!$rules) {
@@ -39,14 +41,18 @@ class Warga_Vaksin extends BaseController
 		}
 
 		$data = [
-			'nik'				 => $this->request->getPost('nik'),
-			'nama'				 => $this->request->getPost('nama'),
-			'alamat'			 => $this->request->getPost('alamat'),
-			'jenis_kelamin'		 => $this->request->getPost('jenis_kelamin'),
-			'no_hp'				 => $this->request->getPost('no_hp'),
-			'tgl_vaksin_pertama' => $this->request->getPost('tgl_vaksin_pertama'),
-			'tgl_vaksin_kedua'   => $this->request->getPost('tgl_vaksin_kedua'),
-			'keterangan'   		 => $this->request->getPost('keterangan'),
+			'nik'				    => $this->request->getPost('nik'),
+			'nama'				    => $this->request->getPost('nama'),
+			'alamat'			    => $this->request->getPost('alamat'),
+			'jenis_kelamin'		    => $this->request->getPost('jenis_kelamin'),
+			'no_hp'				    => $this->request->getPost('no_hp'),
+			'tgl_vaksin_pertama'    => $this->request->getPost('tgl_vaksin_pertama'),
+			'tgl_vaksin_kedua'      => $this->request->getPost('tgl_vaksin_kedua'),
+			'tempat_vaksin_pertama' => $this->request->getPost('tempat_vaksin_pertama'),
+			'tempat_vaksin_kedua'   => $this->request->getPost('tempat_vaksin_kedua'),
+			'jenis_vaksin_pertama'  => $this->request->getPost('jenis_vaksin_pertama'),
+			'jenis_vaksin_kedua'    => $this->request->getPost('jenis_vaksin_kedua'),
+			'keterangan'   		    => $this->request->getPost('keterangan'),
 		];
 
 		$this->Warga_VaksinModel->addData($data);
@@ -69,21 +75,27 @@ class Warga_Vaksin extends BaseController
 			'alamat' => 'required|string',
 			'no_hp' => 'required|numeric',
 			'tgl_vaksin_pertama' => 'required',
+			'tempat_vaksin_pertama' => 'required',
+			'jenis_vaksin_pertama' => 'required',
 		]);
 
 		if (!$rules) {
 			session()->setFlashData('gagal', \Config\Services::validation()->getErrors());
-			return redirect()->to(base_url('Warga_Vaksin')); 
+			return redirect()->to(base_url('Warga_Vaksin/update_data/'.$nik)); 
 		}
 
 		$data = [
-			'nama'				 => $this->request->getPost('nama'),
-			'alamat'			 => $this->request->getPost('alamat'),
-			'jenis_kelamin'		 => $this->request->getPost('jenis_kelamin'),
-			'no_hp'				 => $this->request->getPost('no_hp'),
-			'tgl_vaksin_pertama' => $this->request->getPost('tgl_vaksin_pertama'),
-			'tgl_vaksin_kedua'   => $this->request->getPost('tgl_vaksin_kedua'),
-			'keterangan'   		 => $this->request->getPost('keterangan'),
+			'nama'				    => $this->request->getPost('nama'),
+			'alamat'			    => $this->request->getPost('alamat'),
+			'jenis_kelamin'		    => $this->request->getPost('jenis_kelamin'),
+			'no_hp'				    => $this->request->getPost('no_hp'),
+			'tgl_vaksin_pertama'    => $this->request->getPost('tgl_vaksin_pertama'),
+			'tgl_vaksin_kedua'      => $this->request->getPost('tgl_vaksin_kedua'),
+			'tempat_vaksin_pertama' => $this->request->getPost('tempat_vaksin_pertama'),
+			'tempat_vaksin_kedua'   => $this->request->getPost('tempat_vaksin_kedua'),
+			'jenis_vaksin_pertama'  => $this->request->getPost('jenis_vaksin_pertama'),
+			'jenis_vaksin_kedua'    => $this->request->getPost('jenis_vaksin_kedua'),
+			'keterangan'   		    => $this->request->getPost('keterangan'),
 		];
 
 		$this->Warga_VaksinModel->updateData($nik, $data);
@@ -92,10 +104,15 @@ class Warga_Vaksin extends BaseController
 
 	}
 
-	public function delete_data($nik)
-	{
+	public function delete_data($nik){
 		$this->Warga_VaksinModel->deleteData($nik);
 		session()->setFlashData('sukses', 'Data Terhapus');
 		return redirect()->to(base_url('Warga_Vaksin')); 
+	}
+
+	public function detail_data ($nik) {
+		$data['title'] = 'Detail Data Warga Yang Sudah Vaksin';
+		$data['vaksin'] = $this->Warga_VaksinModel->getData($nik);
+		return view('user/warga_vaksin/detail_data', $data);
 	}
 }

@@ -31,18 +31,36 @@
     Data Posyandu
 </div>
 
-<!-- Nav Item - Balita -->
+<!-- Nav Item - Balita dan Orang Tua -->
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('balita'); ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesBalita"
+    aria-expanded="true" aria-controls="collapsePages"> 
         <i class="fas fa-baby"></i>
-        <span>Data Balita</span></a>
+        <span>Balita dan Orang Tua</span>
+    </a>
+    <div id="collapsePagesBalita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Balita'); ?>">Data Balita</a>
+            <a class="collapse-item" href="<?= base_url('Orang_Tua'); ?>">Data Orang Tua</a>
+        </div>
+    </div> 
 </li>
 
+
 <!-- Nav Item - Ibu Hamil -->
+
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('ibu_hamil'); ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesIbu"
+    aria-expanded="true" aria-controls="collapsePages"> 
         <i class="fas fa-female"></i>
-        <span>Data Ibu Hamil</span></a>
+        <span>Data Ibu Hamil</span>
+    </a>
+    <div id="collapsePagesIbu" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Ibu_Hamil'); ?>">Ibu Hamil</a>
+            <a class="collapse-item" href="<?= base_url('Ibu_Hamil/lahir'); ?>">Ibu yang sudah Melahirkan</a>
+        </div>
+    </div> 
 </li>
 
 <!-- Nav Item - Lansia -->

@@ -21,7 +21,16 @@
         <div class="card-body">
             <div class="container">
                 <table class="table" id="dataTable">
+                <?php
+                $tgl_lahir = esc($balita['tgl_lahir']);
+                $tgl_lahir2 = date('d-m-Y', strtotime($tgl_lahir));
 
+                $berat_lahir = esc($balita['berat_lahir']);
+                $format_berat_lahir = number_format($berat_lahir, 2, ',', '.');
+
+                $panjang_lahir = esc($balita['panjang_lahir']);
+                $format_panjang_lahir = number_format($panjang_lahir, 2, ',', '.');
+                ?>
                     <tr>
                         <td>NIK Balita</td>
                         <td>:</td>
@@ -40,27 +49,22 @@
                     <tr>
                         <td>Tanggal Lahir</td>
                         <td>:</td>
-                        <td><?=esc($balita['tgl_lahir']);?></td>
+                        <td><?=$tgl_lahir2?></td>
                     </tr>
                     <tr>
                         <td>Berat Lahir</td>
                         <td>:</td>
-                        <td><?=esc($balita['berat_lahir']);?></td>
+                        <td><?=$format_berat_lahir;?></td>
                     </tr>
                     <tr>
                         <td>Panjang Lahir</td>
                         <td>:</td>
-                        <td><?=esc($balita['panjang_lahir']);?></td>
+                        <td><?=$format_panjang_lahir;?></td>
                     </tr>
                     <tr>
                         <td>Status Kesehatan</td>
                         <td>:</td>
                         <td><?=esc($balita['status_kesehatan']);?></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td>:</td>
-                        <td><?=esc($balita['alamat']);?></td>
                     </tr>
                     <tr>
                         <td>NIK Ayah</td>
@@ -83,9 +87,19 @@
                         <td><?=esc($balita['nama_ibu']);?></td>
                     </tr>
                     <tr>
-                        <td>No. HP Orang Tua</td>
+                        <td>No. HP Ayah</td>
                         <td>:</td>
-                        <td><?=esc($balita['no_hp_ortu']);?></td>
+                        <td><?=esc($balita['no_hp_ayah']);?></td>
+                    </tr>
+                    <tr>
+                        <td>No. HP Ibu</td>
+                        <td>:</td>
+                        <td><?=esc($balita['no_hp_ibu']);?></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td><?=esc($balita['alamat']);?></td>
                     </tr>
                     
                 </table>
