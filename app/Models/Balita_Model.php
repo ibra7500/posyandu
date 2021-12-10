@@ -71,8 +71,6 @@ class Balita_Model extends Model {
  
      }
 
-     
-
 }
 
 

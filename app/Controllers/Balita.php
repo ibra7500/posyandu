@@ -258,6 +258,46 @@ class Balita extends BaseController
 
 	}
 
+	public function penimbangan_balita($nik_balita) {
+
+		$data['title'] = 'Penimbangan Balita';
+		$data['balita'] = $this->Balita_Model->getData($nik_balita);	
+		$data['id_timbang'] = $this->BalitaTimbang_Model->getDataTimbang();
+		$data['kode_timbang'] = $this->BalitaTimbang_Model->kode_input_timbang_balita();
+		return view('user/balita/penimbangan_balita', $data);
+
+	}
+
+
+	public function input_timbang_balita() {
+
+		$rules = $this->validate([
+			'kode_timbang' => 'required',
+			'tinggi_badan' => 'required|numeric',
+			'berat_badan' => 'required|numeric',
+			'lingkar_kepala' => 'required|numeric',
+		]);
+
+		if (!$rules) {
+			session()->setFlashData('gagal', \Config\Services::validation()->getErrors());
+			return redirect()->to(base_url('Balita/penimbangan_balita')); 
+		}
+		
+		$data = [
+			'kode_timbang'		 => $this->request->getPost('kode_timbang'),
+			'nik_balita'		 => $this->request->getPost('nik_balita'),
+			'tinggi_badan'		 => $this->request->getPost('tinggi_badan'),
+			'berat_badan'		 => $this->request->getPost('berat_badan'),
+			'lingkar_kepala'	 => $this->request->getPost('lingkar_kepala'),
+		];
+
+		$this->BalitaTimbang_Model->addDataTimbang($data);
+		$nik_balita = $this->request->getPost('nik_balita');
+		session()->setFlashData('sukses', 'Data Telah Ditambahkan');
+		return redirect()->to(base_url('Balita/penimbangan_balita/'.$nik_balita)); 
+
+	}
+
 }
 
 ?>
