@@ -128,9 +128,15 @@ class Balita extends BaseController
 		$nik_ibu = $this->request->getPost('nik_ibu');
 
 		$nik_ortu = $this->Balita_Model->check_nik_ortu($nik_ayah,$nik_ibu);
+<<<<<<< HEAD
 
 		if ($nik_ortu > 0) {
 
+=======
+
+		if ($nik_ortu > 0) {
+
+>>>>>>> 5f12255ad47337144b8f758022ec9719402e75c3
 			if((preg_match("/[a-z]/i", $panjang)) || (preg_match("/[a-z]/i", $berat ))){
 				$rules = $this->validate([
 					'nama_balita' => 'required|string',

@@ -70,7 +70,11 @@
 
                 <div class="form-group col-4 my-3">
                     <label for="" class="font-weight-bold">Panjang Lahir</label>
+<<<<<<< HEAD
                     <input type="text" value="<?=$format_panjang_lahir?>" class="form-control " name="panjang_lahir" required>
+=======
+                    <input type="text" value="<?=$format_panjang_lahir?>" class="form-control " name="panjang_lahir">
+>>>>>>> 5f12255ad47337144b8f758022ec9719402e75c3
                 </div>
                
                 <div class="form-group col-4 my-3">
@@ -86,12 +90,20 @@
 
                 <div class="form-group col-4 my-3">
                     <label for="" class="font-weight-bold">NIK Ayah</label>
+<<<<<<< HEAD
                     <input type="text" value="<?= $balita['nik_ayah']; ?>" class="form-control " name="nik_ayah" required>
+=======
+                    <input type="text" value="<?= $balita['nik_ayah']; ?>" class="form-control " name="nik_ayah">
+>>>>>>> 5f12255ad47337144b8f758022ec9719402e75c3
                 </div>
 
                 <div class="form-group col-4 my-3">
                     <label for="" class="font-weight-bold">NIK Ibu</label>
+<<<<<<< HEAD
                     <input type="text" value="<?= $balita['nik_ibu']; ?>" class="form-control " name="nik_ibu" required>
+=======
+                    <input type="text" value="<?= $balita['nik_ibu']; ?>" class="form-control " name="nik_ibu">
+>>>>>>> 5f12255ad47337144b8f758022ec9719402e75c3
                 </div>
                 
             </div>
