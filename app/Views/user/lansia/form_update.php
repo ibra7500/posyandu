@@ -20,44 +20,57 @@
         <div class="card-body">
             <form action="<?= base_url('Lansia/edit_data/'.$lansia['nik_lansia']); ?>" method="POST">
             
-            <div class=" form-group-inline my-2">
-                    <label for="">NIK</label>
-                    <input type="text" value="<?=$lansia['nik_lansia']?>" class="form-control col-lg-5" name="nik_lansia" readonly>
-                </div>
+                <div class="form-row">
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">NIK</label>
+                        <input type="text" value="<?=$lansia['nik_lansia']?>" class="form-control " name="nik_lansia" readonly required>
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Nama</label>
-                    <input type="text" value="<?=$lansia['nama']?>" class="form-control col-lg-5" name="nama_lansia">
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Nama</label>
+                        <input type="text" value="<?=$lansia['nama']?>" class="form-control " name="nama_lansia" required>
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" id="" class="form-control col-lg-5">
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" id="" class="form-control" required>
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Tanggal Lahir</label>
-                    <input name="tgl_lahir" type="date" value="<?=$lansia['tgl_lahir']?>" class="form-control col-lg-5">
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Tanggal Lahir</label>
+                        <input name="tgl_lahir" type="date" value="<?=$lansia['tgl_lahir']?>" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">No HP</label>
+                        <input type="text" value="<?=$lansia['no_hp']?>" class="form-control " name="no_hp" required>
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Alamat</label>
-                    <input type="text" value="<?=$lansia['alamat']?>" class="form-control col-lg-5" name="alamat">
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Status Kesehatan</label>
+                        <input type="text" value="<?=$lansia['status_kesehatan']?>" class="form-control " name="status_kesehatan" required>
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">No HP</label>
-                    <input type="text" value="<?=$lansia['no_hp']?>" class="form-control col-lg-5" name="no_hp">
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Tanggal Meninggal</label>
+                        <input name="tgl_meninggal" type="date" value="<?=$lansia['tgl_meninggal']?>" class="form-control">
+                    </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Status Kesehatan</label>
-                    <input type="text" value="<?=$lansia['status_kesehatan']?>" class="form-control col-lg-5" name="status_kesehatan">
-                </div>
+                    <div class="form-group col-4 my-3">
+                        <label for="" class="font-weight-bold">Keterangan</label>
+                        <input name="keterangan" type="text" value="<?=$lansia['keterangan']?>" class="form-control">
+                    </div>
 
+                 </div>
+
+                 <div class="form-group-inline my-4">
+                        <label for="" class="font-weight-bold">Alamat</label>
+                        <textarea class="form-control" name="alamat" rows="3" required><?=$lansia['alamat']?></textarea>
+                </div>
                 <button type="submit" class="btn btn-success">Simpan </button>
 
             </form>

@@ -61,21 +61,53 @@
                     </thead>
                     <tbody>
                         <?php $no = 1; 
-                        foreach ($warga_vaksin as $vaksin) : ?>
+                        foreach ($warga_vaksin as $vaksin) : 
+                            $tgl_vaksin_1a = esc($vaksin['tgl_vaksin_pertama']);
+                            $tgl_vaksin_1b = date('d-m-Y', strtotime($tgl_vaksin_1a));
+
+                            $tgl_vaksin_2a = esc($vaksin['tgl_vaksin_kedua']);
+                            
+                        if ($tgl_vaksin_2a == '0000-00-00') {
+                            $tgl_vaksin_2b = "-";
+                        }
+                        else {
+                            $tgl_vaksin_2b = date('d-m-Y', strtotime($tgl_vaksin_2a));
+                        }
+                        ?>
                         <tr>
                             <td width= "1%"><?= $no++; ?></td>                           
                             <td><?=esc($vaksin['nama']);?></td>
                             <td><?=esc($vaksin['alamat']);?></td>
                             <td><?=esc($vaksin['no_hp']);?></td>
                             <td><?=esc($vaksin['jenis_kelamin']);?></td>
-                            <td><?=esc($vaksin['tgl_vaksin_pertama']);?></td>
-                            <td><?=esc($vaksin['tgl_vaksin_kedua']);?></td>
+                            <td><?=$tgl_vaksin_1b?></td>
+                            <td><?=$tgl_vaksin_2b;?></td>
                             <td><?=esc($vaksin['keterangan']);?></td>
                             <td class="text-center" width = "20%">
+                                <a href="<?= base_url('Warga_Vaksin/detail_data/'.$vaksin['nik']); ?>" class="btn btn-primary">Detail</a>
                                 <a href="<?= base_url('Warga_Vaksin/update_data/'.$vaksin['nik']); ?>" class="btn btn-success">Update</a>
-                                <a href="<?= base_url('Warga_Vaksin/delete_data/'.$vaksin['nik']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="#" type="button" data-target="#myModalHapus-<?=$vaksin['nik'];?>" class="btn btn-danger m-1" data-toggle="modal">Delete</a>
                             </td>
                         </tr>
+                        <div class="modal fade" id="myModalHapus-<?=$vaksin['nik'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Hapus <?=$title?></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="">Apakah anda yakin ingin <b>menghapus</b> <?=$title?> yang bernama <b><?=esc($vaksin['nama']);?></b>?</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <a href="<?= base_url('Warga_Vaksin/delete_data/'.$vaksin['nik']); ?>" class="btn btn-danger">Hapus</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

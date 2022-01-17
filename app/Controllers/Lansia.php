@@ -53,8 +53,7 @@ class Lansia extends BaseController
 		session()->setFlashData('sukses', 'Data Telah Ditambahkan');
 		return redirect()->to(base_url('Lansia')); 
 	}
-	public function update_data($nik_lansia)
-	{
+	public function update_data($nik_lansia){
 		$data['title'] = 'Perbarui Data Lansia';
 		$data['lansia'] = $this->Lansia_Model->getData($nik_lansia);
 		return view('user/lansia/form_update', $data);
@@ -83,6 +82,8 @@ class Lansia extends BaseController
 			'alamat'			 => $this->request->getPost('alamat'),
 			'no_hp'				 => $this->request->getPost('no_hp'),
 			'status_kesehatan'   => $this->request->getPost('status_kesehatan'),
+			'tgl_meninggal' 	 => $this->request->getPost('tgl_meninggal'),
+			'keterangan' 		 => $this->request->getPost('keterangan'),
 		];
 
 		$this->Lansia_Model->updateData($nik_lansia, $data);
@@ -91,8 +92,7 @@ class Lansia extends BaseController
 
 	}
 
-	public function delete_data($nik_lansia)
-	{
+	public function delete_data($nik_lansia){
 		$this->Lansia_Model->deleteData($nik_lansia);
 		session()->setFlashData('sukses', 'Data Terhapus');
 		return redirect()->to(base_url('Lansia')); 

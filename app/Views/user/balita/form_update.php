@@ -5,7 +5,17 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800"><?=$title?></h1>
-    
+    <?php
+     if (session()->getFlashData('error_koma')) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-times"></i> Gagal </strong> <?= session()->getFlashData('error_koma'); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <?php endif;
+    ?>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -19,75 +29,72 @@
         </div>
         <div class="card-body">
             <form action="<?= base_url('Balita/edit_data/'.$balita['nik_balita']); ?>" method="POST">
+
+            <?php
+            $berat_lahir = esc($balita['berat_lahir']);
+            $format_berat_lahir = number_format($berat_lahir, 2, ',', '.');
+
+            $panjang_lahir = esc($balita['panjang_lahir']);
+            $format_panjang_lahir = number_format($panjang_lahir, 2, ',', '.');
+            ?>
             
-                <div class=" form-group-inline my-2 mb-2">
-                    <label for="">NIK Balita</label>
-                    <input type="text" value="<?= $balita['nik_balita']; ?>" class="form-control col-lg-5" name="nik_balita" readonly>
+            <div class="form-row">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK Balita</label>
+                    <input type="text" value="<?= $balita['nik_balita']; ?>" class="form-control " name="nik_balita" readonly>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Nama</label>
-                    <input type="text" value="<?= $balita['nama']; ?>" class="form-control col-lg-5" name="nama_balita">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Nama</label>
+                    <input type="text" value="<?= $balita['nama']; ?>" class="form-control " name="nama_balita" required>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" id="" class="form-control col-lg-5">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="" class="form-control" required>
+                        <option value="">Pilih Jenis Kelamin</option>
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Tanggal Lahir</label>
-                    <input name="tgl_lahir" type="date" value="<?= $balita['tgl_lahir']; ?>" class="form-control col-lg-5">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Tanggal Lahir</label>
+                    <input name="tgl_lahir" type="date" value="<?= $balita['tgl_lahir']; ?>" class="form-control" required>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Berat Lahir</label>
-                    <input type="text" value="<?= $balita['berat_lahir']; ?>" class="form-control col-lg-5" name="berat_lahir">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Berat Lahir</label>
+                    <input type="text" value="<?=$format_berat_lahir?>" class="form-control " name="berat_lahir" required>
                 </div>
 
-                <div class="form-group-inline my-4">
-                    <label for="">Panjang Lahir</label>
-                    <input type="text" value="<?= $balita['panjang_lahir']; ?>" class="form-control col-lg-5" name="panjang_lahir">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Panjang Lahir</label>
+                    <input type="text" value="<?=$format_panjang_lahir?>" class="form-control " name="panjang_lahir" required>
                 </div>
                
-                <div class="form-group-inline my-4">
-                    <label for="">Status Kesehatan</label>
-                    <input type="text" value="<?= $balita['status_kesehatan']; ?>" class="form-control col-lg-5" name="status_kesehatan">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">Status Kesehatan</label>
+                    <select name="status_kesehatan" id="" class="form-control" required>
+                        <option value="">Pilih Status</option>
+                        <option value="Gizi Buruk" class="font-weight-bold">Gizi Buruk</option>
+                        <option value="Gizi Kurang" class="font-weight-bold">Gizi Kurang</option>
+                        <option value="Gizi Baik" class="font-weight-bold">Gizi Baik</option>
+                        <option value="Gizi Lebih" class="font-weight-bold">Gizi Lebih</option>
+                    </select>
                 </div>
 
-                <div class=" form-group-inline my-2">
-                    <label for="">NIK Ayah</label>
-                    <input type="text" value="<?= $balita['nik_ayah']; ?>" class="form-control col-lg-5" name="nik_ayah">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK Ayah</label>
+                    <input type="text" value="<?= $balita['nik_ayah']; ?>" class="form-control " name="nik_ayah" required>
                 </div>
 
-                <div class=" form-group-inline my-2">
-                    <label for="">Nama Ayah</label>
-                    <input type="text" value="<?= $balita['nama_ayah']; ?>" class="form-control col-lg-5" name="nama_ayah">
+                <div class="form-group col-4 my-3">
+                    <label for="" class="font-weight-bold">NIK Ibu</label>
+                    <input type="text" value="<?= $balita['nik_ibu']; ?>" class="form-control " name="nik_ibu" required>
                 </div>
-
-                <div class=" form-group-inline my-2">
-                    <label for="">NIK Ibu</label>
-                    <input type="text" value="<?= $balita['nik_ibu']; ?>" class="form-control col-lg-5" name="nik_ibu">
-                </div>
-
-                <div class=" form-group-inline my-2">
-                    <label for="">Nama Ibu</label>
-                    <input type="text" value="<?= $balita['nama_ibu']; ?>" class="form-control col-lg-5" name="nama_ibu">
-                </div>
-
-                <div class="form-group-inline my-4">
-                    <label for="">Alamat</label>
-                    <input type="text" value="<?= $balita['alamat']; ?>" class="form-control col-lg-5" name="alamat">
-                </div>
-
-                <div class="form-group-inline my-4">
-                    <label for="">No HP</label>
-                    <input type="text" value="<?= $balita['no_hp_ortu']; ?>" class="form-control col-lg-5" name="no_hp_ortu">
-                </div>
-
+                
+            </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
             </form>
         </div>

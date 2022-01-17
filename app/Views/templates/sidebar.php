@@ -18,7 +18,7 @@
 
 <!-- Nav Item - User Lists -->
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('admin'); ?>">
+    <a class="nav-link" href="<?= base_url('Admin'); ?>">
         <i class="fas fa-user"></i>
         <span>User Lists</span></a>
 </li>
@@ -31,32 +31,50 @@
     Data Posyandu
 </div>
 
-<!-- Nav Item - Balita -->
+<!-- Nav Item - Balita dan Orang Tua -->
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('balita'); ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesBalita"
+    aria-expanded="true" aria-controls="collapsePages"> 
         <i class="fas fa-baby"></i>
-        <span>Data Balita</span></a>
+        <span>Balita dan Orang Tua</span>
+    </a>
+    <div id="collapsePagesBalita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Balita'); ?>">Data Balita</a>
+            <a class="collapse-item" href="<?= base_url('Orang_Tua'); ?>">Data Orang Tua</a>
+        </div>
+    </div> 
 </li>
 
+
 <!-- Nav Item - Ibu Hamil -->
+
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('ibu_hamil'); ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesIbu"
+    aria-expanded="true" aria-controls="collapsePages"> 
         <i class="fas fa-female"></i>
-        <span>Data Ibu Hamil</span></a>
+        <span>Data Ibu Hamil</span>
+    </a>
+    <div id="collapsePagesIbu" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Ibu_Hamil'); ?>">Ibu Hamil</a>
+            <a class="collapse-item" href="<?= base_url('Ibu_Hamil/lahir'); ?>">Ibu yang sudah Melahirkan</a>
+        </div>
+    </div> 
 </li>
 
 <!-- Nav Item - Lansia -->
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('lansia'); ?>">
+    <a class="nav-link" href="<?= base_url('Lansia'); ?>">
         <i class="fas fa-user"></i>
         <span>Data Lansia</span></a>
 </li>
 
 <!-- Nav Item - Warga Sudah Vaksin -->
 <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('warga_vaksin'); ?>">
+    <a class="nav-link" href="<?= base_url('Warga_Vaksin'); ?>">
         <i class="fas fa-syringe"></i>
-        <span>Data Warga Sudah Vaksin</span></a>
+        <span>Data Warga Vaksin COVID</span></a>
 </li>
 
 <!-- Divider -->

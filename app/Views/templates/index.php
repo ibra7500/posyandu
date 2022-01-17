@@ -52,7 +52,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website <?= date('Y'); ?></span>
+                        <span>Copyright &copy; Mohammad Rahadyan Ibrahim - 41518210052 <?= date('Y'); ?></span>
                     </div>
                 </div>
             </footer>
@@ -108,10 +108,14 @@
     <script>
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4',
-            format: 'yyyy-dd-mm'
+            format: 'dd-mm-yyyy'
         });
     
     </script>
+    <script src="<?= base_url(); ?>/vendor/chart.js/Chart.min.js"></script>
+    <script src="<?= base_url(); ?>/js/demo/chart-area-demo.js"></script>
+    <script src="<?= base_url(); ?>/js/demo/chart-pie-demo.js"></script>
+    <script src="<?= base_url(); ?>/js/demo/chart-bar-demo.js"></script>
 </body>
 
 </html>

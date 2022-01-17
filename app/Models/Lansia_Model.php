@@ -32,19 +32,19 @@ class Lansia_Model extends Model {
         $this->builder->insert($data);
      }
      
-     public function updateData($nik_lansia, $data) {
+    public function updateData($nik_lansia, $data) {
         
         $this->builder->where('nik_lansia', $nik_lansia);
         $this->builder->update($data);
  
-     }
+    }
  
      public function deleteData($nik_lansia) {
         
         $this->builder->where('nik_lansia', $nik_lansia);
         $this->builder->delete();
  
-     }
+    }
 }
 
 ?>

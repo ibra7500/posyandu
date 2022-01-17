@@ -14,36 +14,31 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Home</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('Admin'); ?>">Admin</a></li>
-                <li class="breadcrumb-item active"><?= lang('Auth.register') ?></li>
+                <li class="breadcrumb-item active"><?= $title ?></li>
             </ol>
         </div>
         <div class="card-body">
         <?= view('Myth\Auth\Views\_message_block') ?>
-            <form action="<?= route_to('register') ?>" method="POST" class="user">
+            <form action="<?= base_url('Admin/edit_data/'.$user['id']); ?>" method="POST" class="user">
             <?= csrf_field() ?>
 
                 <div class="form-row">
                     <div class="form-group col-6 my-3 offset-md-3">
                         <label for="" class="font-weight-bold">Email</label>
+                        <input type="hidden" value="<?=esc($user['id'])?>">
                         <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" 
-                            placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>">
+                            placeholder="<?=lang('Auth.email')?>" value="<?=esc($user['email'])?>" required>
                     </div>
                     <div class="form-group col-6 my-3 offset-md-3">
                         <label for="" class="font-weight-bold">Username</label>
                         <input type="text" class="form-control <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" name="username"
-                        placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>">
+                        placeholder="<?=lang('Auth.username')?>" value="<?= esc($user['username']) ?>" required>
+                    </div>
+                    <div class="form-group col-6 my-3 offset-md-3">
+                        <label for="" class="font-weight-bold">Full Name</label>
+                        <input type="text" class="form-control" name="fullname" value="<?= esc($user['fullname']) ?>" required>
                     </div>
 
-                    <div class="form-group col-6 my-3 offset-md-3">
-                        <label for="" class="font-weight-bold">Password</label>
-                        <input type="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>"
-                            name="password" placeholder="<?=lang('Auth.password')?>" autocomplete="off">
-                    </div>
-                    <div class="form-group col-6 my-3 offset-md-3">
-                        <label for="" class="font-weight-bold">Repeat Password</label>
-                        <input type="password" class="form-control <?php if(session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>"
-                        name="pass_confirm" placeholder="<?=lang('Auth.repeatPassword')?>" autocomplete="off">
-                    </div>
                 </div>
                 <div class="form-row">
                     <button type="submit" class="btn btn-success mx-auto mt-2 btn-lg" style="width: 50%;"><?=lang('Auth.register')?></button>
